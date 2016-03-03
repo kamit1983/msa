@@ -4,6 +4,7 @@
   "description": "Training material",
   "main": "index.htm",
   "scripts": {
+    "start": "ws --port=3000",
     "test": "test"
   },
   "repository": {
