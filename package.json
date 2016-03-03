@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/accionlabs/angular-training/issues"
   },
-  "homepage": "https://github.com/accionlabs/angular-training#readme"
+  "homepage": "https://github.com/accionlabs/angular-training#readme",
+  "dependencies": {
+    "local-web-server": "^0.5.23"
+  }
 }
