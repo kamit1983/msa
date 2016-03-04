@@ -12,20 +12,29 @@
 
 <body> 
 	<h1>Angular Training</h1>
-	<div ng-controller="HelloWorldCntrl">
-		<h2>Employee Data</h2>
-		<div id="search-box">Search : <input ng-model="query"></div>
-		<div>
-		<ul>
-			<ol ng-repeat="employee in employees | filter:query">
-				<label>Name: {{employee.name}} </label><br/>
-				<label class="designation">Designation {{employee.designation}}</label>
-			</ol>
-		</ul>
+	<div ng-controller="HelloWorldCntrl" class="container">
+		<div class="row">
+			<div class="col col-md-4">
+			<h2>Employee Data</h2>
+			<div id="search-box">Search : <input ng-model="query"></div>
+			<ul>
+				<ol ng-repeat="employee in employees | filter:query">
+					<label>Name: {{employee.name}} </label><br/>
+					<label class="designation">Designation {{employee.designation}}</label>
+				</ol>
+			</ul>
 		</div>
+	</div>
+	<div ng-controller="AnotherCntrl" class="container">
+		<label for="inputName">Name</label>
+		<input type="text" id="inputName"/>
+		<label for="inputDesignation">Designation</label>
+		<input type="text" id="inputDesignation"/>
+		<button class="btn btn-success" type="submit" ng-click="addNewEmployee()">Add New Employee</button>
 	</div>
 
 	<script type="text/javascript" src="js/controllers/helloWorldController.js"></script>
+	<script type="text/javascript" src="js/controllers/anotherController.js"></script>
 </body>
 
 </html>

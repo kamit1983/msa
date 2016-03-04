@@ -16,3 +16,8 @@ ul ol{
 .designation{
 	color:#fff;
 }
+.form-panel{
+	background-color: #CCC;
+	padding: 20px;
+	margin-bottom: 20px;
+}

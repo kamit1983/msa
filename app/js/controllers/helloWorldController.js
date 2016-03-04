@@ -15,5 +15,5 @@ app.controller('HelloWorldCntrl', ['$scope', function($scope){
 			"name": "Mike Preria",
 			"designation": "Marketing Head"
 		}
-	]
+	];
 }])
