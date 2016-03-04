@@ -21,3 +21,6 @@ ul ol{
 	padding: 20px;
 	margin-bottom: 20px;
 }
+.strikeout{
+	text-decoration: line-through;
+}
