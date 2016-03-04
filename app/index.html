@@ -14,7 +14,15 @@
 	<h1>Angular Training</h1>
 	<div ng-controller="HelloWorldCntrl">
 		<h2>Employee Data</h2>
-		
+		<div id="search-box">Search : <input ng-model="query"></div>
+		<div>
+		<ul>
+			<ol ng-repeat="employee in employees | filter:query">
+				<label>Name: {{employee.name}} </label><br/>
+				<label class="designation">Designation {{employee.designation}}</label>
+			</ol>
+		</ul>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="js/controllers/helloWorldController.js"></script>
