@@ -1,5 +1,5 @@
 var app = angular.module('app',[]);
-app.controller('HelloWorldCntrl', ['$scope', function($scope){
+app.controller('HelloWorldCntrl', ['$scope', '$rootScope', function($scope, $rootScope){
 	$scope.testMessage = "Hello World!!!";
 
 	$scope.employees = [
@@ -16,4 +16,6 @@ app.controller('HelloWorldCntrl', ['$scope', function($scope){
 			"designation": "Marketing Head"
 		}
 	];
+
+	$rootScope.employees = $scope.employees;
 }])
