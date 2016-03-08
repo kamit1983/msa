@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router','ngAnimate']);
 app.config(function($stateProvider, $urlRouterProvider){
 	//$urlRouterProvider.otherwise('/home');
 	$stateProvider.state('home', {
@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 	})
 	.state('users',{
 		url:'/users',
-		templateUrl:'templates/users.tpl.html',
-		controller:'UserController'
+		templateUrl:'templates/users.tpl.html'
+
 	});
 });
