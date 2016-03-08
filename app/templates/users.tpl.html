@@ -1,0 +1,22 @@
+<div>
+  <table class='table table-striped'>
+    <thead>
+      <th>Name</th>
+      <th>Skill</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat='user in users'>
+        <td>{{user.name}}</td>
+        <td>{{user.skill}}</td>
+        <td><button ng-click='remove'>Remove</button></td>
+      </tr>
+      <tr ng-if='users.length == 0'>
+        <td colspan="3">Wait while data is fetched!!</td>
+      </tr>
+    </tbody>
+  <table>
+
+
+   </div>
+</div>

@@ -1,4 +1,4 @@
-var app = angular.module('app',['ui.router']);
+//var app = angular.module('app',['ui.router']);
 app.controller('HelloWorldCntrl', ['$scope', '$rootScope', function($scope, $rootScope){
 	$scope.testMessage = "Hello World!!!";
 
