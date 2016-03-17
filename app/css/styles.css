@@ -1,3 +1,6 @@
+body{
+	margin-left: 20px;
+}
 ul ol{
 	background-color: red;
 	box-shadow: 1px 1px 3px #333;
@@ -23,4 +26,15 @@ ul ol{
 }
 .strikeout{
 	text-decoration: line-through;
+}
+
+ul li{
+}
+i:before{
+	font-size: 18px;
+	content:'✎';
+	display:inline-block;
+	margin-right:5px;
+	font-weight:normal;
+	vertical-align: baseline;
 }

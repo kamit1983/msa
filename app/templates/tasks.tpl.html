@@ -1,0 +1,14 @@
+<div>
+	<h2>Tasks</h2>
+	<input type="text" ng-model="newTask"/>
+	<button ng-click="addNewTask()">Add</button>
+	<br/><br/>
+	<ul>
+		<li ng-repeat="task in tasks">
+			<a href="javascript:;" ng-click="editItem(task)" ng-hide="task.editing"><label ng-hide="task.editing">{{task.name}}</label></a>
+			<input type="text" ng-model="task.name" ng-show="task.editing" ></input>
+			<button ng-click="saveTask(task)" ng-show="task.editing">Save</button>
+			<button ng-click="deleteItem($index)" ng-show="task.editing">Delete</button>
+		</li>
+	</ul>
+</div>

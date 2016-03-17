@@ -7,5 +7,10 @@ app.config(['$stateProvider', function($stateProvider){
 	.state('employees', {
 		url:'/employees',
 		templateUrl:'templates/employee.tpl.html'
+	})
+	.state('tasks', {
+		url:'/tasks',
+		templateUrl:'templates/tasks.tpl.html',
+		controller: 'TasksCntrl'
 	});
 }])
