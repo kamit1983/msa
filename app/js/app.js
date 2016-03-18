@@ -1,4 +1,4 @@
-var app = angular.module('app',['ui.router']);
+var app = angular.module('app',['ui.router', 'ngAnimate']);
 app.config(['$stateProvider', function($stateProvider){
 	$stateProvider.state('home', {
 		url:'/',
@@ -13,9 +13,15 @@ app.config(['$stateProvider', function($stateProvider){
 		url:'/tasks',
 		templateUrl:'templates/tasks.tpl.html',
 		controller: 'TasksCntrl'
-	}).state('registration', {
+	})
+	.state('registration', {
 		url:'/registration',
 		templateUrl:'templates/registration.tpl.html',
 		controller: 'RegistrationCntrl'
+	})
+	.state('animate', {
+		url:'/animate',
+		templateUrl: 'templates/animate.tpl.html',
+		controller: 'AnimationCtrl'
 	});
 }])

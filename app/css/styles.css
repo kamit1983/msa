@@ -38,3 +38,21 @@ i:before{
 	font-weight:normal;
 	vertical-align: baseline;
 }
+
+.fadeIn.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fadeIn.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.fadeIn.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.fadeIn.ng-leave.ng-leave-active {
+  opacity:0;
+}
