@@ -13,5 +13,9 @@ app.config(['$stateProvider', function($stateProvider){
 		url:'/tasks',
 		templateUrl:'templates/tasks.tpl.html',
 		controller: 'TasksCntrl'
+	}).state('registration', {
+		url:'/registration',
+		templateUrl:'templates/registration.tpl.html',
+		controller: 'RegistrationCntrl'
 	});
 }])

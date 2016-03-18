@@ -4,4 +4,8 @@ app.controller('TasksCntrl', ['$scope', function($scope){
 	$scope.addNewTask = function(){
 		$scope.tasks.push({name:$scope.newTask});
 	}
+
+	$scope.task = {
+		name:"Random Task"
+	};
 }]);
