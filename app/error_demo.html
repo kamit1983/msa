@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+  <title>Demo of automatic error handling in AngularJS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      padding-bottom: 25px;
+    }
+
+    .container {
+      max-width: 750px;
+    }
+
+    .table>tbody>tr>td.middle {
+      vertical-align: middle;
+    }
+
+    .error-msgs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .alert {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body ng-app="errorDemo">
+  <div class="error-msgs">
+    <!-- Show error messages (typically a reusable directive) -->
+    <div class="alert alert-danger alert-dismissable" ng-repeat="msg in errorHandler.errors track by $index">
+      <button type="button" class="close" ng-click="errorHandler.errors.splice($index, 1)">&times;</button>
+      {{msg}}
+    </div>
+    <button type="button" class="btn btn-sm btn-default" ng-click="errorHandler.errors.length = 0;" ng-show="errorHandler.errors.length">Clear all messages</button>
+  </div>
+
+  <div class="container">
+
+    <div class="page-header">
+      <h1>Demo of automatic error handling</h1>
+      <p class="lead">Companion material with <a href="http://technology.amis.nl/2014/10/06/automatic-error-handling-in-angularjs/">this blog post</a>. The source code is available on GitHub: <a href="https://github.com/pavadeli/angularjs-errorhandling">https://github.com/pavadeli/angularjs-errorhandling</a>.</p>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>Error messages will appear in the top-left corner of the browser screen. Not very user-friendly, I know, but now you don't have to scroll to the top to see the error messages. See the blog post for more information.</p>
+
+    <h2>Manual handling</h2>
+    <table class="table table-hover" ng-controller="manualController">
+      <tbody>
+        <tr class="danger">
+          <td>
+            <h4>Synchronous error (unhandled)</h4>
+            <p>A function throws a synchronous error.</p>
+            <pre>undecoratedService.throwsAnError();</pre>
+            <small>Look in the console log for the error details. User doesn't know anything went wrong.</small>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="synchronousError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="warning">
+          <td>
+            <h4>Synchronous error (manual handling)</h4>
+            <p>Add the error message to the list of errors manually.</p>
+            <pre>try {
+  undecoratedService.throwsAnError();
+} catch (err) {
+  errorHandler.errors.push(err && err.message || err);
+}</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="manualError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="active">
+          <td>
+            <h4>Synchronous error (manual function wrapping)</h4>
+            <p>Call the service using the errorHandler (kinda stupid).</p>
+            <pre>errorHandler.call(undecoratedService.throwsAnError, undecoratedService);</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="wrappedSynchronousError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="danger">
+          <td>
+            <h4>Asynchronous error (unhandled)</h4>
+            <p>A function returns a promise which gets rejected after some time.</p>
+            <pre>undecoratedService.promiseRejects();</pre>
+            <small>Error gets lost. User doesn't know anything went wrong.</small>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="asynchronousError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="warning">
+          <td>
+            <h4>Asynchronous error (manual handling)</h4>
+            <p>Add the error message to the list of errors manually.</p>
+            <pre>undecoratedService.promiseRejects()
+  ['catch'](function (err) {
+    errorHandler.errors.push(err);
+  });</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="manualAsynchronousError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="active">
+          <td>
+            <h4>Asynchronous error (manual function wrapping)</h4>
+            <p>Call the service using the errorHandler (stupid).</p>
+            <pre>errorHandler.call(undecoratedService.promiseRejects, undecoratedService);</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="wrappedAsynchronousError()">Try it</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Automatic handling</h2>
+    <table class="table table-hover" ng-controller="autoController">
+      <tbody>
+        <tr class="success">
+          <td>
+            <h4>Synchronous error (automatic function wrapping)</h4>
+            <p>Call the service as you normally would but get error messages for free.</p>
+            <pre>decoratedService.throwsAnError();</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="synchronousError()">Try it</button>
+          </td>
+        </tr>
+        <tr class="success">
+          <td>
+            <h4>Asynchronous error (automatic function wrapping)</h4>
+            <p>Call the service as you normally would but get error messages for free.</p>
+            <pre>decoratedService.promiseRejectsAfterAWhile();</pre>
+          </td>
+          <td class="middle">
+            <button type="button" class="btn btn-primary btn-block" ng-click="asynchronousError()">Try it</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Realistic scenario</h2>
+    <div ng-controller="exampleController">
+      <p>This is a more realistic scenario. Suppose you want to load some data "ajaxy" on the press of a button, you want
+      the code to look like this:</p>
+      <caption>Service function</caption>
+      <pre>function loadData() {
+  return $http.get('somefile.html')
+    .then(function (result) {
+      return result.data;
+    });
+}
+</pre>
+      <caption>Controller</caption>
+      <pre>$scope.data = '';
+$scope.buttonPressed = function () {
+  exampleService.loadData().then(function (data) {
+    $scope.data = data;
+  });
+};</pre>
+      <p>It is obvious that any error will leave the user in the dark about what happened, without any feedback. We <strong>do</strong> want to inform the user about the error with a meaningful error message, but we <strong>don't</strong> want to write tedious error handling code over and over again. Now with the following simple command, we get just that:</p>
+      <pre>errorHandlerProvider.decorate($provide, ['theServiceNameHere', 'anotherServiceHere']);</pre>
+      <h3>Try it</h3>
+      <p>
+        <button type="button" class="btn btn-primary" ng-click="loadData('data')">Load some data (will succeed)</button>
+        <button type="button" class="btn btn-danger" ng-click="loadData('doesntExist')">Load some data (will fail)</button>
+      </p>
+      <pre>Data: {{data}}</pre>
+    </div>
+
+  </div>
+
+  <script src="libs/angular/angular.js"></script>
+  <script src="js/providers/errorhandler.js"></script>
+  <script src="js/error_demo.js"></script>
+</body>
+</html>
