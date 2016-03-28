@@ -1,0 +1,8 @@
+<div>
+	<button class="btn btn-primary" ng-click="getMessages()">Refresh Messages</button><br/>
+	<messages data-msgs="messages"></messages>
+	<br/>
+	<button class="btn btn-primary" ng-click="showCompose=true">Compose New Email</button>
+	<br/>
+	<compose on-compose="composed(message)" ng-show="showCompose"></compose>
+</div>

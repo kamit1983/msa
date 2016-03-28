@@ -23,5 +23,22 @@ app.config(['$stateProvider', function($stateProvider){
 		url:'/animate',
 		templateUrl: 'templates/animate.tpl.html',
 		controller: 'AnimationCtrl'
+	})
+	.state('inbox', {
+		url:'/inbox/:userid',
+		templateUrl: 'templates/inbox.tpl.html',
+		controller: 'InboxCtrl'
 	});
 }])
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<div>
+	<div ng-repeat="msg in msgs">
+		<input type="checkbox" value="{{msg.id}}">
+		<label>{{msg.subject}}</label>
+		<label>{{msg.body | limitTo: 20}}</label>
+		</div>
+	</div>
+</div>
