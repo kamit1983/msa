@@ -1,0 +1,82 @@
+[
+  {
+    "upc": "1234567890",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567891",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567892",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567893",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567894",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567895",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567896",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567897",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567898",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  },
+  {
+    "upc": "1234567899",
+    "upcDescription": "CAMEL PK",
+    "recommendedUom": "PACK",
+    "validatedUom": "EACH",
+    "cantegory": "cigarattes",
+    "manufacturer": "CAMEL"
+  }
+]
