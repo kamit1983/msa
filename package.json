@@ -1,30 +1,45 @@
 {
-  "name": "angular-training",
+  "name": "react-app",
   "version": "1.0.0",
-  "description": "Training material",
+  "description": "demo",
   "main": "index.htm",
   "scripts": {
-    "start": "ws --port=3000",
+    "start": "ws --port=8084",
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/accionlabs/angular-training.git"
+    "url": ""
   },
   "keywords": [
-    "Angular",
-    "Trainings"
+    "react",
+    "demo"
   ],
-  "author": "Devender Gupta",
+  "author": "Amit Kumar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/accionlabs/angular-training/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/accionlabs/angular-training#readme",
+  "homepage": "",
   "dependencies": {
-    "local-web-server": "^0.5.23"
+    "bootstrap": "^3.3.6",
+    "griddle-react": "^0.5.1",
+    "jquery": "^2.2.4",
+    "local-web-server": "^0.5.23",
+    "moment": "^2.13.0",
+    "rc-collapse": "^1.6.3",
+    "react": "^15.1.0",
+    "react-datepicker": "^0.27.0",
+    "react-dom": "^15.1.0",
+    "react-modal": "^1.3.0"
   },
   "devDependencies": {
-    "local-web-server": "^0.5.23"
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "local-web-server": "^0.5.23",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

@@ -1,1 +1,1 @@
-# angular-training
+# React App
