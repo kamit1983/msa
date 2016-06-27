@@ -58,7 +58,6 @@ class FilterComponent extends React.Component
 
   }
   search(){
-    console.log(JSON.stringify(this.state));
     $("a[href='#list'").trigger('click');
     this.props.get();
   }
@@ -72,18 +71,18 @@ class FilterComponent extends React.Component
           <InputText name={prop.name} value={self.state[prop.name]} onChange={self.handleChange.bind(self)} placeholder={prop.label} />
         </div>
       }else if(prop.type === "select"){
-        return <div className="col-md-6 form-group">
+        return <div className="col-md-6 form-group" key={prop.key}>
           <label for={prop.name}>{prop.label}:</label>
           <Select name={prop.name} value={self.state[prop.name]} onChange={self.handleChange.bind(self)}/>
         </div>
       }else if(prop.type === "button"){
-        return <div className="col-md-6 form-group">
+        return <div className="col-md-6 form-group" key={prop.key}>
           <button type="button" className="btn btn-default pull-right"
           onClick={self.search.bind(self)}
           >Search</button>
         </div>
       }else if(prop.type === "date"){
-        return <div className="col-md-6 form-group">
+        return <div className="col-md-6 form-group" key={prop.key}>
           <label for={prop.name}>{prop.label}:</label>
           <DatePickerComponent name={prop.name} before={prop.before} after={prop.after}
             selected={self.state[prop.name]}

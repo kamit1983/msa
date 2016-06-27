@@ -41,6 +41,15 @@ class RootComponent extends React.Component
   setPage(page){
     this.setState({externalCurrentPage: page})
   }
+  externalChangeSort(){
+
+  }
+  externalSetFilter(){
+
+  }
+  externalSetPageSize(){
+
+  }
   onChange(activeKey) {
     this.setState({
       activeKey: activeKey
@@ -130,6 +139,9 @@ class RootComponent extends React.Component
                 showSettings={true}
                 externalSortColumn="upc"
                 useExternal={true}
+                externalChangeSort={this.externalChangeSort.bind(this)}
+                externalSetFilter={this.externalSetFilter.bind(this)}
+                externalSetPageSize={this.externalSetPageSize.bind(this)}
                 externalSetPage={this.setPage.bind(this)}
                 externalCurrentPage={this.state.externalCurrentPage}
                 externalMaxPage={200}
