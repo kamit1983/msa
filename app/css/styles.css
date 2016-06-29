@@ -16,3 +16,11 @@
   max-height: 75vh;
   overflow: scroll;
 }
+.bootstrap-typeahead{
+  display: inline-block;
+  width: 300px;
+  float: right;
+}
+.bootstrap-tokenizer {
+  padding: 0px;
+}

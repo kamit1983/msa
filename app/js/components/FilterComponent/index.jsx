@@ -4,12 +4,17 @@ import InputText from "./InputTextCompoent";
 import Select from "./SelectComponent";
 import DatePickerComponent from "./DatePickerComponent";
 import moment from 'moment';
+import MultiSelect from "./MultiSelectCompoent";
 
 class FilterComponent extends React.Component
 {
   constructor(props){
     super(props);
     this.state = {};
+    this.state.options = [{id: 1, name: 'John'},
+  {id: 2, name: 'Miles'},
+  {id: 3, name: 'Charles'},
+  {id: 4, name: 'Herbie'}];
     for (var i = 0; i < props.filterProperty.length; i++) {
         switch (props.filterProperty[i].type) {
           case "date":
@@ -87,6 +92,11 @@ class FilterComponent extends React.Component
           <DatePickerComponent name={prop.name} before={prop.before} after={prop.after}
             selected={self.state[prop.name]}
             onChange={self.handleDateChange.bind(self)} />
+        </div>
+      }else if(prop.type === "multi"){
+        return <div className="col-md-6 form-group" key={prop.key}>
+          <label for={prop.name}>{prop.label}:</label>
+            <MultiSelect name={prop.name} options={self.state.options} value={self.state[prop.name]} onChange={self.handleChange.bind(self)}/>
         </div>
       }
 

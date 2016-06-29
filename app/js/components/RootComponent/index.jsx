@@ -65,7 +65,7 @@ class RootComponent extends React.Component
       {key: 2, name:"iUUID", label: "iUUID", type:"input"},
       {key: 3, name:"category", label: "Category", type:"input"},
       {key: 4, name:"recommemded", label: "Recommemded", type:"select"},
-      {key: 5, name:"recommendedUom", label: "Recommemded UOM", type:"input"},
+      {key: 5, name:"recommendedUom", label: "Recommemded UOM", type:"multi"},
       {key: 6, name:"recommemmdedStartDate", label: "Recommemded Date on or after", type:"date",before:"recommemdedEndDate"},
       {key: 7, name:"recommemmdedEndDate", label: "Recommemded Date on or before", type:"date",after: "recommemdedStartDate"},
       {key: 8, name:"validated", label: "Validated", type:"select"},
